@@ -1,5 +1,7 @@
 #!/bin/sh
 
+COMMAND="java -Xmx$MEMORY -jar ./server.jar --nogui"
+
 if [ ! -f "./eula.txt" ]; then
   printf "eula=$EULA" > ./eula.txt
 fi
@@ -67,6 +69,21 @@ if [ ! -f "./server.jar" ]; then
     echo "Download completed (version: $MINECRAFT_VERSION (fabric))"
   fi
 
+  #if [ "$LOADER" == "NEOFORGE" ]; then
+  #  curl -o installer.jar https://maven.neoforged.net/releases/net/neoforged/neoforge/$MINECRAFT_VERSION/neoforge-$MINECRAFT_VERSION-installer.jar
+  #  java -jar ./installer.jar --installServer
+  #  COMMAND="java -Xmx$MEMORY @libraries/net/neoforged/neoforge/$MINECRAFT_VERSION/unix_args.txt nogui"
+  #  rm ./installer.jar
+  #  echo "Download & install completed (version: $MINECRAFT_VERSION (NEOFORGE))"
+  #fi
+
+  #if [ "$LOADER" == "FORGE" ]; then
+  #  curl -o installer.jar https://maven.minecraftforge.net/net/minecraftforge/forge/$MINECRAFT_VERSION/forge-$MINECRAFT_VERSION-installer.jar
+  #  java -jar ./installer.jar --installServer
+  #  COMMAND="java -Xmx$MEMORY @libraries/net/minecraftforge/forge/$MINECRAFT_VERSION/unix_args.txt nogui"
+  #  rm ./installer.jar
+  #  echo "Download & install completed (version: $MINECRAFT_VERSION (FORGE))"
+  #fi
 fi
 
-exec java -Xmx$MEMORY -jar ./server.jar --nogui
+exec $COMMAND
