@@ -5,7 +5,7 @@
 
 ## Environment Variables
 - EULA (default: false), set to true in order to agree to Minecraft's EULA (https://www.minecraft.net/en-us/eula)
-- LOADER (default: PAPER), set to either "PAPER" or "FABRIC" in order to switch the downloaded loader
+- LOADER (default: PAPER), set to either "PAPER" or "FABRIC" in order to switch the downloaded loader ("FORGE" and "NEOFORGE" are broken, as they do not shutdown properly)
 - MINECRAFT_VERSION (default: 1.21), set to the desired minecraft (or forge/neoforge) version
 - MEMORY (default: 4G), set to the desired "-Xmx" value for the Java VM
 
